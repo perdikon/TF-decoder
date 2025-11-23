@@ -1,0 +1,6 @@
+Dataset,Traces,Variants,Activities,Resources,Avg. trace length,Max trace length,Avg. trace cycle time (h),Avg. trace cycle time (days),Total duration (h),Total duration (days),Total duration (years)
+TEST,937,864,36,48,38.15,127,368.2,15.34,1127.59,46.98,0.1287
+TRAIN,2811,2374,36,59,40.09,175,464.41,19.35,3560.61,148.36,0.4065
+gen_cvae,937,918,32,48,38.92,90,320.67,13.36,2344.76,97.7,0.2677
+gen_flow,937,901,36,63,33.12,100,344.07,14.34,3691.41,153.81,0.4214
+gen_flow_beam,937,926,36,63,30.18,100,339.71,14.15,1612.32,67.18,0.1841
