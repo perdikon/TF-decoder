@@ -1,0 +1,41 @@
+# @package test_cfg
+
+# Data Generation Settings
+generation:
+  logs_to_generate: 10
+  output_name: "gen"
+  sample_proportions: true  # whether to match test set label proportions
+  existing_dir: null
+  beam_search:
+    enabled: false
+    num_beams: 4
+
+  #"C://Users/nikol/MT-repo/output/baseline_cvae/generated"
+
+# Evaluation Settings  
+evaluation:
+  metrics: ["cfld", "2gram", "red", "ctd", "cwd", "conformance"]
+  train_splits: 3  # number of temporal chunks for training data
+  
+# Output Settings
+output:
+  experiment_name: "evaluation"
+  base_path: "output"
+  save_plots: true
+  plot_formats: ["png"]
+  
+# Plotting Configuration
+plots:
+  control_flow_metrics: ["cfld", "2gram"]
+  temporal_metrics: ["ctd", "red"] 
+  distance_metrics: ["cwd"]
+  conformance_metrics: ["conformance"]
+  
+# Conformance Settings
+conformance:
+  min_support: 0.9
+  itemsets_support: 0.9
+  max_declare_cardinality: 2
+  consider_vacuity: false
+
+

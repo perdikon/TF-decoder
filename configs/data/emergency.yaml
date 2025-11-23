@@ -1,0 +1,6 @@
+_target_: src.data.generic_datamodule.EmergencyORTDataModule
+data_dir: ${paths.data_dir}
+batch_size: 128 # Needs to be divisible by the number of devices (e.g., if in a distributed setup)
+train_val_test_split: [0.6, 0.2, 0.2]
+num_workers: 4
+pin_memory: True

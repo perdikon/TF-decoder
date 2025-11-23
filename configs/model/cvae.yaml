@@ -1,0 +1,39 @@
+
+_target_: src.models.cvae_module.CVAELitModule
+vae:
+  _partial_: true
+  _target_: src.models.components.cvae.vae.VAE
+  num_lstm_layers : 1 
+  attr_e_dim : 5
+  act_e_dim : 5
+  res_e_dim : 5
+  cf_dim : 200   #hidden size of lstm 
+  z_dim : 10   #dimensionality of latent space
+  c_dim : 2    # conditional dimesion 
+  dropout_p : 0.05
+
+  encoder:
+    _partial_: true
+    _target_: src.models.components.cvae.components.Encoder
+
+  decoder:
+    _partial_: true
+    _target_: src.models.components.cvae.components.Decoder
+
+kl_cycle:
+  start: 0
+  stop: 1
+  n_cycles: 8
+  ratio: 0.5
+
+
+optimizer:
+  _target_: torch.optim.Adam
+  _partial_: true
+  lr: 3e-4
+
+scheduler:
+  null
+
+flow_warmup_epochs:
+  null

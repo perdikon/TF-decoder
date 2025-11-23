@@ -1,0 +1,26 @@
+defaults:
+  - model_checkpoint
+  - early_stopping
+  - model_summary
+  - rich_progress_bar
+  - _self_
+
+model_checkpoint:
+  dirpath: ${paths.output_dir}/checkpoints
+  filename: "epoch_{epoch:03d}-val_loss={val/loss:.1f}"
+  monitor: 'val/loss'
+  mode: "min"
+  save_last: True
+  save_top_k: 5
+  every_n_epochs: 1
+  auto_insert_metric_name: False
+  save_on_train_epoch_end: True
+
+early_stopping:
+  monitor: "val/loss"
+  patience: 150
+  mode: "min"
+  min_delta: 0.05
+
+model_summary:
+  max_depth: -1

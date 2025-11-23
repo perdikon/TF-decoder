@@ -1,0 +1,79 @@
+
+_target_: src.models.cvae_module.CVAELitModule
+vae:
+  _partial_: true
+  _target_: src.models.components.cvae.vae2.VAE
+  attr_e_dim : 5
+  act_e_dim : 5
+  res_e_dim : 5
+  cf_dim : 512   #hidden size of transformer 
+  z_dim : 10   #dimensionality of latent space
+  c_dim : 2    # conditional dimesion 
+  dropout_p : 0.1
+
+  encoder:
+    _partial_: true
+    _target_: src.models.components.cvae.components.Encoder
+
+  decoder:
+    _partial_: true
+    _target_: src.models.components.cvae.transformer_flow_decoder_new.TransformerFlowDecoderSimplex
+    #Flow settings
+    flow_layers: 12
+    flow_num_bins: 24
+    flow_tail_bound: 8.0
+    flow_cond_hidden: 256
+    flow_cond_blocks: 2
+    flow_cond_dropout: 0.1
+    flow_use_random_perm_each_layer: true
+    # Transformer settings
+    num_heads: 8
+    num_transformer_layers : 4 #num transformer layers
+    use_alternating_mask: true
+    use_film: true
+    use_alibi: false
+    #Modeling
+    use_logspace_time: true
+    use_pre_rotation: true
+    rotation_reflections: 2
+    use_pos_ratio: true
+    use_weighted_schedule: false
+    use_ilr: true
+
+    # Dequantization (Dirichlet)
+    dirichlet_alpha_main: 60.0
+    dirichlet_alpha_noise: 0.5
+
+optimizer:
+  _target_: torch.optim.AdamW
+  _partial_: true
+  lr: 5e-4
+  weight_decay: 5e-5
+
+scheduler:
+  _target_: torch.optim.lr_scheduler.ReduceLROnPlateau
+  _partial_: true
+  mode: min
+  factor: 0.5
+  patience: 25
+  min_lr: 1e-6
+
+
+kl_cycle:
+  start: 0.05
+  stop: 0.6
+  n_cycles: 8  
+  ratio: 0.6
+
+free_bits: 0.02 #0.005 # minimum KL divergence per dimension
+
+cat_loss_weight: 0.1  
+
+teacher_forcing:
+  start_ratio: 1.0   # p(teacher) at epoch 0
+  end_ratio:   0.5   # p(teacher) after `decay_epochs`
+  decay_epochs: 1000   # linear decay length
+  hold_epochs: 300   # epochs to hold the end_ratio before decaying again
+
+flow_warmup_epochs: null  # epochs to warm up flow decoder null to disable
+
