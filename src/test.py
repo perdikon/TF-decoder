@@ -13,7 +13,7 @@ if __name__ == "__main__":
     ]
     
     # dataset = GenericDataset(
-    #     dataset_path='C:/Users/nikol/MT-repo/data/raw/Sepsis Cases - Event Log.xes',
+    #     dataset_path='<DATA_ROOT>/raw/Sepsis Cases - Event Log.xes',
     #     max_trace_length=100,
     #     num_activities=10,
     #     num_labels=2,

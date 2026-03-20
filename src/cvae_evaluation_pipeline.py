@@ -335,7 +335,7 @@ class CVAEEvaluationPipeline:
         gen_out = os.path.join(out_dir, 'latents_generated.csv')
         lat_gen.to_csv(gen_out, index=False)
 
-        # new_path = "C://Users//nikol//MT-repo//logs//eval//runs//2025-11-08_20-01-18//baseline_cvae_rerun_test//generated"
+        # new_path = "<LOGS_ROOT>/eval/runs/baseline_cvae_rerun_test/generated"
         # new_gen_csvs = sorted(glob.glob(os.path.join(new_path, 'gen*.csv')))
         # if new_gen_csvs:
         #     lat_gen_parts = []
@@ -981,7 +981,7 @@ class CVAEEvaluationPipeline:
         
         
         df_real = self._prep_eval_df(df_real)
-        df_real.to_csv("C://Users//nikol//MT-repo//data//emergency_ORT//emergency_ORT_TEST2_maybe.csv", index=False, sep=';')
+        df_real.to_csv("<DATA_ROOT>/emergency_ORT/emergency_ORT_TEST2_maybe.csv", index=False, sep=';')
         real_profile = self._chsic_profile_one_df(df_real)
         real_counts = df_real['concept:name'].value_counts().to_dict()
         real_aggr = self._aggregate_profiles(real_profile, real_counts)

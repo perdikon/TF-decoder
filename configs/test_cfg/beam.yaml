@@ -10,7 +10,7 @@ generation:
     enabled: true
     num_beams: 4
 
-  #"C://Users/nikol/MT-repo/output/baseline_cvae/generated"
+  #"<OUTPUT_ROOT>/baseline_cvae/generated"
 
 # Evaluation Settings  
 evaluation:

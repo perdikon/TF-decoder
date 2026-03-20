@@ -25,7 +25,7 @@ training, and assessing synthetic log quality.
 
 ```bash
 # clone project
-git clone https://github.com/perdikon/TF-decoder
+git clone https://github.com/<YOUR_GITHUB_USERNAME>/TF-decoder
 cd TF-decoder
 
 # [OPTIONAL] create conda environment
@@ -43,8 +43,8 @@ pip install -r requirements.txt
 
 ```bash
 # clone project
-git clone https://github.com/YourGithubName/your-repo-name
-cd your-repo-name
+git clone https://github.com/<YOUR_GITHUB_USERNAME>/TF-decoder
+cd TF-decoder
 
 # create conda environment and install dependencies
 conda env create -f environment.yaml -n myenv
