@@ -11,9 +11,7 @@
 
 ## Description
 
-This repository implements the experiments from the thesis
-"Synthetic Event Log Generation Through the Joint Modeling of Event Attributes".
-It provides a Transformer decoder (TF decoder)–based generative model for
+This repository provides a Transformer decoder (TF decoder)–based generative model for
 event logs, along with training and evaluation pipelines built on PyTorch
 Lightning and Hydra. The code supports multiple real-world process mining
 datasets (e.g., sepsis, emergency, BPIC) and tools for preprocessing,
@@ -74,7 +72,7 @@ python src/train.py --config-name=train_tf_decoder.yaml data=bpic
 
 ## How to run evaluation
 
-``` bash
+```bash
 
 #evaluate CVAE on Sepsis
 
@@ -87,7 +85,6 @@ python src/eval.py data=sepsis model=tf_decoder ckpt_path=<path/to/your_trained_
 
 
 ```
-
 
 ## Configurations
 
@@ -106,4 +103,3 @@ You can override any setting from the command line, e.g.:
 ```bash
 python src/train.py data=sepsis trainer.max_epochs=20 model.lr=1e-4
 ```
-
