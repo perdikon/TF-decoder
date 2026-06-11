@@ -48,8 +48,8 @@ cd TF-decoder
 # create conda environment and install dependencies
 conda env create -f environment.yaml -n myenv
 
-#NOTE: this installs the CPU version of pytorch, for better performance, please install the GPU version 
-#from https://pytorch.org/get-started/
+# NOTE: this installs the CPU version of pytorch, for better performance, please install the GPU version 
+# from https://pytorch.org/get-started/
 
 # activate conda environment
 conda activate myenv
