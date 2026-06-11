@@ -62,6 +62,7 @@ geomloss
 nflows
 umap-learn
 pynndescent
+rapidfuzz
 
 # --------- logging / visualization --------- #
 tensorboard

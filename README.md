@@ -31,6 +31,7 @@ conda create -n myenv python=3.9
 conda activate myenv
 
 # install pytorch according to instructions
+# it is recommended to use GPU versions
 # https://pytorch.org/get-started/
 
 # install requirements
@@ -46,6 +47,8 @@ cd TF-decoder
 
 # create conda environment and install dependencies
 conda env create -f environment.yaml -n myenv
+
+#NOTE: this installs the CPU version of pytorch, for better performance, please install the GPU version from https://pytorch.org/get-started/
 
 # activate conda environment
 conda activate myenv
